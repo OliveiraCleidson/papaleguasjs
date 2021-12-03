@@ -1,0 +1,1 @@
+{"version":3,"file":"dataContainerFactory.js","sourceRoot":"","sources":["../../src/factories/dataContainerFactory.ts"],"names":[],"mappings":";;;AACA,kDAAgD;AAEhD,MAAa,oBAAoB;IAC/B,MAAM,CAAC,mBAAmB;QACxB,MAAM,aAAa,GAAkB,EAAE,CAAC;QACxC,aAAa,CAAC,MAAM,GAAG,sBAAU,CAAC,QAAQ,CAAC,IAAI,CAAC;QAEhD,OAAO,aAAa,CAAC;IACvB,CAAC;CACF;AAPD,oDAOC"}

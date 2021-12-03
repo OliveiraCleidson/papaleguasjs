@@ -1,0 +1,1 @@
+{"version":3,"file":"simpleCrudStrategy.js","sourceRoot":"","sources":["../../src/strategies/simpleCrudStrategy.ts"],"names":[],"mappings":";;;AAAA,iGAA8F;AAGvF,MAAM,yBAAyB,GAAG,CAAC,eAAgC,EAAE,EAAE;IAC5E,eAAe,CAAC,SAAS,CAAC,IAAI,6CAAqB,EAAE,CAAC,CAAC;IACvD,OAAO,eAAe,CAAC,KAAK,EAAE,CAAC;AACjC,CAAC,CAAC;AAHW,QAAA,yBAAyB,6BAGpC"}

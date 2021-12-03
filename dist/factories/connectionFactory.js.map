@@ -1,0 +1,1 @@
+{"version":3,"file":"connectionFactory.js","sourceRoot":"","sources":["../../src/factories/connectionFactory.ts"],"names":[],"mappings":";;;;;;AAAA,kDAA0B;AAC1B,kDAAgD;AAEhD,MAAa,iBAAiB;IAC5B,MAAM,CAAC,KAAK,CAAC,yBAAyB;QACpC,MAAM,UAAU,GAAG,MAAM,eAAK,CAAC,OAAO,CACpC,sBAAU,CAAC,QAAQ,CAAC,gBAAgB,CACrC,CAAC;QACF,OAAO,UAAU,CAAC;IACpB,CAAC;CACF;AAPD,8CAOC"}

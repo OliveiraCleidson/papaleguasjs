@@ -10,13 +10,23 @@
     "target": "es2020",
     "esModuleInterop": true,
     "sourceMap": true,
-    "rootDirs": ["src", "tests"],
-    "baseUrl": "src",
+    "rootDirs": [
+      "src",
+      "tests"
+    ],
+    "baseUrl": ".",
     "paths": {
-      "@/tests/*": ["../tests/*"],
-      "@/*": ["*"]
+      "@/tests/*": [
+        "./tests/*"
+      ],
+      "@/*": [
+        "src/*"
+      ]
     }
   },
-  "include": ["src", "tests"],
+  "include": [
+    "src",
+    "tests"
+  ],
   "exclude": []
 }
