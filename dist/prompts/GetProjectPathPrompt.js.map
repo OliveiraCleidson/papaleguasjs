@@ -1,1 +1,0 @@
-{"version":3,"file":"GetProjectPathPrompt.js","sourceRoot":"","sources":["../../src/prompts/GetProjectPathPrompt.ts"],"names":[],"mappings":";;;AAAA,qCAAkC;AAE3B,MAAM,oBAAoB,GAAG,GAAG,EAAE,CACvC,IAAI,eAAM,CACR,sBAAsB,EACtB,CAAC,aAAa,CAAC,EACf;IACE;QACE,IAAI,EAAE,OAAO;QACb,IAAI,EAAE,aAAa;QACnB,OAAO,EAAE,0BAA0B;KACpC;CACF,CACF,CAAC;AAXS,QAAA,oBAAoB,wBAW7B"}
