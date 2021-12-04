@@ -1,5 +1,5 @@
 {
-  "name": "automation-cli",
+  "name": "papaleguas",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -10,11 +10,14 @@
     "email": "oliv.cleidson@gmail.com",
     "name": "Cleidson Oliveira"
   },
+  "bin": "./dist/main.js",
+  "types": "./dist/main.d.ts",
   "scripts": {
     "build": "rimraf ./dist && tsc && tsc-alias",
     "start:dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/main.ts",
     "start:debug": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/main.ts",
-    "start": "node ./dist/main.js"
+    "start": "node ./dist/main.js",
+    "prepare": "npm run build"
   },
   "dependencies": {
     "@types/inquirer": "^8.1.3",

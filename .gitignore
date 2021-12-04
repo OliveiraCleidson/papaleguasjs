@@ -1,5 +1,15 @@
+# Dependencies
 node_modules
-logs
+yarn.lock
+package-lock.json
+
+# Environment
 .env
 !.env.example
+
+# IDE
+.vscode
+
+# Generated Files
 dist
+coverage

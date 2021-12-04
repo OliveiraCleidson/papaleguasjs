@@ -4,8 +4,8 @@ export const filterDtoTemplate = ({
   modelName,
   props,
 }: DataContainer) => `using System;
-using Menumax.Dtos.Filters;
 using Menumax.Models;
+using Menumax.Shared.Dtos.Filters;
 
 namespace Menumax.Dtos.Update
 {

@@ -1,0 +1,2 @@
+{"level":"info","message":"Starting","service":"automation-cli"}
+{"level":"error","message":"Failed to connect to localhost:1433 - self signed certificate","service":"automation-cli"}

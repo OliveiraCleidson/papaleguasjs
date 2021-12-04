@@ -15,7 +15,6 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Menumax.Data;
 using Menumax.Dtos.Create;
-using Menumax.Dtos.Filters;
 using Menumax.Dtos.Update;
 using Menumax.Factories;
 using Menumax.Models;

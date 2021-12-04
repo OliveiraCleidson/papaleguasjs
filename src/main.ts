@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import 'dotenv/config';
 import { StrategyBuilder } from './builders';
 import { ActionsFactory, ConnectionFactory } from './factories';

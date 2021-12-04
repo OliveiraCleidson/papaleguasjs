@@ -7,7 +7,6 @@ export const viewModelTemplate = ({
 }: DataContainer) => `using System;
 using Menumax.Models;
 using Menumax.Shared.Helpers;
-using Menumax.ViewModels.Compacts;
 
 namespace Menumax.ViewModels
 {

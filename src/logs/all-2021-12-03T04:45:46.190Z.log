@@ -1,0 +1,6 @@
+{"level":"info","message":"Starting","service":"automation-cli"}
+{"level":"info","message":"AppContext - Executing action: TableAction","service":"automation-cli"}
+{"level":"info","message":"AppContext - Action OK","service":"automation-cli"}
+{"level":"info","message":"AppContext - Executing action: GenerateContentAction","service":"automation-cli"}
+{"level":"info","message":"AppContext - Action OK","service":"automation-cli"}
+{"level":"info","message":"CLI Started","service":"automation-cli"}
