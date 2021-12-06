@@ -8,7 +8,7 @@ using Menumax.Shared.Dtos;
 
 namespace Menumax.Dtos.Create
 {
-    public class Create${modelName}Dto : Dto
+    public class Create${modelName}Dto : ActionDto
     {
         ${props}
     }
