@@ -7,8 +7,8 @@
     "node": "^14.17"
   },
   "author": {
-    "email": "oliv.cleidson@gmail.com",
-    "name": "Cleidson Oliveira"
+    "email": "dev.cleidson@gmail.com",
+    "name": "Oliver"
   },
   "bin": "./dist/main.js",
   "types": "./dist/main.d.ts",
