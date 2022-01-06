@@ -4,4 +4,5 @@ import { Queue } from '@/structs/Queue';
 
 export interface IStrategy {
   process: Queue<Action | Prompt>;
+  name: string;
 }

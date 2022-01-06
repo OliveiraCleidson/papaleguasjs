@@ -2,38 +2,33 @@
 
 import 'dotenv/config';
 import { StrategyBuilder } from './builders';
-import { ActionsFactory, ConnectionFactory } from './factories';
 import { ContextFactory } from './factories/contextFactory';
 import { DataContainerFactory } from './factories/dataContainerFactory';
 import { LoggerFactory } from './factories/loggerFactory';
-import { getProjectPathPrompt } from './prompts/GetProjectPathPrompt';
-import { simpleCrudStrategyFactory } from './strategies/simpleCrudStrategy';
+import { MvFrameworkStrategyFactory } from './strategies';
 
 const logger = LoggerFactory.createWinstonLogger();
 console.log('Starting');
 logger.log({ message: 'Starting', level: 'info' });
 
 async function bootstrap() {
-  const connection = await ConnectionFactory.createSqlServerConnection();
   const dataContainer = DataContainerFactory.createDataContainer();
   const appContext = ContextFactory.createAppContext(
     dataContainer,
     logger.child({ service: 'AppContext' }),
   );
 
-  const tableAction = ActionsFactory.createGetTablesAction(connection);
-  const strategyBuilder = new StrategyBuilder('simpleCrudStrategy', ['dbName']);
+  const strategyBuilder = new StrategyBuilder('mvFrameworkStrategy', []);
 
-  strategyBuilder.addAction(tableAction);
-  const simpleCrudStrategy = simpleCrudStrategyFactory(strategyBuilder);
+  const mvFrameworkStrategy = MvFrameworkStrategyFactory(strategyBuilder);
 
-  appContext._strategy = simpleCrudStrategy;
+  appContext._strategy = mvFrameworkStrategy;
+  console.log('Strategy: ', appContext._strategy.name);
   console.log('CLI Started');
   await appContext.execute();
 
   logger.log({ message: 'CLI Started', level: 'info' });
 
-  await connection.close();
   console.log('Connection closed');
   console.log('Finished');
 }

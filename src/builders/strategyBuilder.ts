@@ -15,6 +15,7 @@ export class StrategyBuilder {
     this._inputData = initialInputData || [];
     this._strategy = {
       process: new Queue<Action>(),
+      name,
     };
   }
 

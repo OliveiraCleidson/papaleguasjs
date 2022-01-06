@@ -9,19 +9,20 @@ import { getTablesByDbQuery, getColumnsByTableQuery } from '@/queries';
 import { Action } from '.';
 
 export class GetTablesAction extends Action {
-  private readonly _connection: ConnectionPool;
+  private _connection: ConnectionPool;
 
-  constructor(connection: ConnectionPool) {
+  constructor() {
     super();
-    this._connection = connection;
-    this.name = 'TableAction';
-    this.inputData = ['dbName'];
+    this.name = 'GetTablesAction';
+    this.inputData = [];
     this.outputData = ['tables', 'projectPath'];
   }
 
   async execute(dataContainer: DataContainer): Promise<DataContainer> {
+    this._connection = dataContainer.connection as ConnectionPool;
+
     const tablesResult = await this._connection.query<Table>(
-      getTablesByDbQuery(dataContainer.dbName as string),
+      getTablesByDbQuery('dev'),
     );
 
     const tables = tablesResult.recordset;

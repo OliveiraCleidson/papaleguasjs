@@ -13,3 +13,5 @@ package-lock.json
 # Generated Files
 dist
 coverage
+
+src/logs
