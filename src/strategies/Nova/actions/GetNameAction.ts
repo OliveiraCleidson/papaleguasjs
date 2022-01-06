@@ -5,11 +5,15 @@ export class GetNameAction extends Action {
   constructor() {
     super();
     this.name = 'GetNameAction';
-    this.inputData = [];
-    this.outputData = ['name'];
+    this.inputData = ['name'];
+    this.outputData = ['valor'];
   }
 
   execute(dataContainer: DataContainer): Promise<DataContainer> {
-    throw new Error('Method not implemented.');
+    const { name } = dataContainer;
+
+    dataContainer.valor = '';
+
+    return Promise.resolve(dataContainer);
   }
 }
