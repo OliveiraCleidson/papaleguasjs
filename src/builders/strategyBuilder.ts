@@ -10,13 +10,8 @@ export class StrategyBuilder {
 
   private _strategy: IStrategy;
 
-  constructor(public name: string, initialInputData: string[] = []) {
-    this._process = [];
-    this._inputData = initialInputData || [];
-    this._strategy = {
-      process: new Queue<Action>(),
-      name,
-    };
+  constructor(public name: string = '', initialInputData: string[] = []) {
+    this._clear(name, initialInputData);
   }
 
   addAction(action: Action) {
@@ -48,6 +43,17 @@ export class StrategyBuilder {
 
     console.log(`${this.name} build success`);
 
-    return this._strategy;
+    const strategy = this._strategy;
+    this._clear('');
+    return strategy;
+  }
+
+  private _clear(name: string, initialInputData: string[] = []) {
+    this._process = [];
+    this._inputData = initialInputData;
+    this._strategy = {
+      process: new Queue<Action>(),
+      name,
+    };
   }
 }

@@ -6,7 +6,9 @@ import { ContextFactory } from './factories/contextFactory';
 import { DataContainerFactory } from './factories/dataContainerFactory';
 import { LoggerFactory } from './factories/loggerFactory';
 import { MvFrameworkStrategyFactory } from './strategies';
+import { NovaStrategyFactory } from './strategies/Nova';
 
+// Inicializa o Logger
 const logger = LoggerFactory.createWinstonLogger();
 console.log('Starting');
 logger.log({ message: 'Starting', level: 'info' });
@@ -18,9 +20,10 @@ async function bootstrap() {
     logger.child({ service: 'AppContext' }),
   );
 
-  const strategyBuilder = new StrategyBuilder('mvFrameworkStrategy', []);
+  const strategyBuilder = new StrategyBuilder();
 
   const mvFrameworkStrategy = MvFrameworkStrategyFactory(strategyBuilder);
+  const novaStrategy = NovaStrategyFactory(strategyBuilder);
 
   appContext._strategy = mvFrameworkStrategy;
   console.log('Strategy: ', appContext._strategy.name);

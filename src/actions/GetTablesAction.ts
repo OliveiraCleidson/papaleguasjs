@@ -14,7 +14,7 @@ export class GetTablesAction extends Action {
   constructor() {
     super();
     this.name = 'GetTablesAction';
-    this.inputData = [];
+    this.inputData = ['connection'];
     this.outputData = ['tables', 'projectPath'];
   }
 

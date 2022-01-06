@@ -2,6 +2,7 @@ import { DataContainer } from '@/@types';
 
 export abstract class Action {
   constructor() {
+    this.name = '';
     this.inputData = [];
     this.outputData = [];
   }
