@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
 import 'dotenv/config';
+import inquirer from 'inquirer';
 import { StrategyBuilder } from './builders';
 import { ContextFactory } from './factories/contextFactory';
 import { DataContainerFactory } from './factories/dataContainerFactory';
 import { LoggerFactory } from './factories/loggerFactory';
-import { MvFrameworkStrategyFactory } from './strategies';
+import { IStrategy, MvFrameworkStrategyFactory } from './strategies';
 import { NovaStrategyFactory } from './strategies/Nova';
 
 // Inicializa o Logger
@@ -25,8 +26,25 @@ async function bootstrap() {
   const mvFrameworkStrategy = MvFrameworkStrategyFactory(strategyBuilder);
   const novaStrategy = NovaStrategyFactory(strategyBuilder);
 
-  appContext._strategy = mvFrameworkStrategy;
+  const strategies: IStrategy[] = [];
+  strategies.push(mvFrameworkStrategy);
+  strategies.push(novaStrategy);
+
+  console.clear();
+  const { strategyName } = await inquirer.prompt([
+    {
+      type: 'rawlist',
+      name: 'strategyName',
+      message: 'Escolha uma estratégia',
+      choices: strategies.map(s => s.name),
+    },
+  ]);
+
+  const strategy = strategies.find(s => s.name === strategyName);
+
+  appContext._strategy = strategy;
   console.log('Strategy: ', appContext._strategy.name);
+
   console.log('CLI Started');
   await appContext.execute();
 
