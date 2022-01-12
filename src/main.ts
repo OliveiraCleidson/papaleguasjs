@@ -44,6 +44,7 @@ async function bootstrap() {
 
   appContext._strategy = strategy;
   console.log('Strategy: ', appContext._strategy.name);
+
   console.log('CLI Started');
   await appContext.execute();
 
