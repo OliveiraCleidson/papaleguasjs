@@ -44,11 +44,12 @@ export class StrategyBuilder {
     console.log(`${this.name} build success`);
 
     const strategy = this._strategy;
-    this._clear('');
+    strategy.name = this.name;
+    this._clear();
     return strategy;
   }
 
-  private _clear(name: string, initialInputData: string[] = []) {
+  private _clear(name: string = '', initialInputData: string[] = []) {
     this._process = [];
     this._inputData = initialInputData;
     this._strategy = {

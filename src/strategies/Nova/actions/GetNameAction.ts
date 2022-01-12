@@ -5,7 +5,7 @@ export class GetNameAction extends Action {
   constructor() {
     super();
     this.name = 'GetNameAction';
-    this.inputData = ['name'];
+    this.inputData = [];
     this.outputData = ['valor'];
   }
 
