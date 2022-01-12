@@ -23,6 +23,7 @@ async function bootstrap() {
 
   const strategyBuilder = new StrategyBuilder();
   const mvFrameworkStrategy = MvFrameworkStrategyFactory(strategyBuilder);
+
   const novaStrategy = NovaStrategyFactory(strategyBuilder);
 
   const strategies: IStrategy[] = [];
