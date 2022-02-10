@@ -1,16 +1,15 @@
 /* eslint-disable no-restricted-syntax */
+import fs from 'fs';
 import { camelCase } from 'camel-case';
 import { paramCase } from 'param-case';
 import { resolve } from 'path';
-import fs from 'fs';
-import { columns } from 'mssql';
 import { DataContainer } from '@/@types';
 import { Action } from '@/actions';
-import { controllerTemplate } from '@/fileTemplates/byStrategy/simpleCrud';
-import { createDtoTemplate } from '@/fileTemplates/byStrategy/simpleCrud/createDtoTemplate';
-import { filterDtoTemplate } from '@/fileTemplates/byStrategy/simpleCrud/filterDtoTemplate';
-import { updateDtoTemplate } from '@/fileTemplates/byStrategy/simpleCrud/updateDtoTemplate';
-import { viewModelTemplate } from '@/fileTemplates/byStrategy/simpleCrud/viewModelTemplate';
+import { controllerTemplate } from '../fileTemplates';
+import { createDtoTemplate } from '../fileTemplates/createDtoTemplate';
+import { filterDtoTemplate } from '../fileTemplates/filterDtoTemplate';
+import { updateDtoTemplate } from '../fileTemplates/updateDtoTemplate';
+import { viewModelTemplate } from '../fileTemplates/viewModelTemplate';
 import { ITable } from '@/models';
 import { PropertyService } from '@/services/propertyService';
 
@@ -20,11 +19,11 @@ export class GenerateContentAction extends Action {
     this.name = 'GenerateContentAction';
     this.inputData = ['tables', 'projectPath'];
     this.outputData = [
-      // 'viewContent',
-      // 'updateDtoContent',
-      // 'createDtoContent',
-      // 'controllerContent',
-      // 'filterDtoContent',
+      'viewContent',
+      'updateDtoContent',
+      'createDtoContent',
+      'controllerContent',
+      'filterDtoContent',
     ];
   }
 
@@ -52,9 +51,9 @@ export class GenerateContentAction extends Action {
         modelName: table.displayName.singular,
       });
 
-      ignoredProps.push(
-        ...['DtCreatedAt', 'DtUpdatedAt', 'CreatedBy', 'UpdatedBy'],
-      );
+      // ignoredProps.push(
+      //   ...['DtCreatedAt', 'DtUpdatedAt', 'CreatedBy', 'UpdatedBy'],
+      // );
       props = PropertyService.c_generatePropsByColumns(
         table.columns.filter(c => !ignoredProps.includes(c.displayName)),
       );
@@ -68,11 +67,11 @@ export class GenerateContentAction extends Action {
         modelName: table.displayName.singular,
       });
 
-      // const controllerContent = controllerTemplate({
-      //   modelName: table.displayName.singular,
-      //   plural: camelCase(table.displayName.plural),
-      //   controllerName: paramCase(table.displayName.plural),
-      // });
+      const controllerContent = controllerTemplate({
+        modelName: table.displayName.singular,
+        plural: camelCase(table.displayName.plural),
+        controllerName: paramCase(table.displayName.plural),
+      });
 
       fs.promises.writeFile(
         resolve(
@@ -117,15 +116,15 @@ export class GenerateContentAction extends Action {
         'utf-8',
       );
 
-      // fs.promises.writeFile(
-      //   resolve(
-      //     projectPath as string,
-      //     'Controllers',
-      //     `${table.displayName.singular}Controller.cs`,
-      //   ),
-      //   controllerContent as string,
-      //   'utf-8',
-      // );
+      fs.promises.writeFile(
+        resolve(
+          projectPath as string,
+          'Controllers',
+          `${table.displayName.singular}Controller.cs`,
+        ),
+        controllerContent as string,
+        'utf-8',
+      );
     }
 
     return Promise.resolve(dataContainer);

@@ -1,0 +1,5 @@
+{
+  "name" : "Pedro",
+  "strategies" : ["./src/strategies/SimpleCrudNetCore/index.ts",
+  "./src/strategies/MvFramework/index.ts"]
+}

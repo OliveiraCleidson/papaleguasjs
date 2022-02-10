@@ -6,8 +6,10 @@ import { StrategyBuilder } from './builders';
 import { ContextFactory } from './factories/contextFactory';
 import { DataContainerFactory } from './factories/dataContainerFactory';
 import { LoggerFactory } from './factories/loggerFactory';
+import { getStrategiesFromRcJson } from './getStrategiesFromRcJson';
 import { IStrategy, MvFrameworkStrategyFactory } from './strategies';
 import { NovaStrategyFactory } from './strategies/Nova';
+import { SimpleCrudNetCoreStrategyFactory } from './strategies/SimpleCrudNetCore';
 
 // Inicializa o Logger
 const logger = LoggerFactory.createWinstonLogger();
@@ -21,14 +23,7 @@ async function bootstrap() {
     logger.child({ service: 'AppContext' }),
   );
 
-  const strategyBuilder = new StrategyBuilder();
-  const mvFrameworkStrategy = MvFrameworkStrategyFactory(strategyBuilder);
-
-  const novaStrategy = NovaStrategyFactory(strategyBuilder);
-
-  const strategies: IStrategy[] = [];
-  strategies.push(mvFrameworkStrategy);
-  strategies.push(novaStrategy);
+  const strategies = await getStrategiesFromRcJson();
 
   console.clear();
   const { strategyName } = await inquirer.prompt([

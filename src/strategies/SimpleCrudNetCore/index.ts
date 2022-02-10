@@ -1,16 +1,13 @@
 import { GetTablesAction } from '@/actions';
+import { GenerateContentAction } from './actions/generateContentAction';
 import { StrategyBuilder } from '@/builders';
-import {
-  CloseConnectionAction,
-  GenerateRepositoriesAction,
-  GetConnectionAction,
-} from './actions';
+import { GetConnectionAction } from '../MvFramework/actions';
 
 export const strategyFactory = (strategyBuilder: StrategyBuilder) => {
-  strategyBuilder.name = 'MvFramework Strategy';
+  strategyBuilder.name = 'simpleCrud';
   strategyBuilder.addAction(new GetConnectionAction());
   strategyBuilder.addAction(new GetTablesAction());
-  strategyBuilder.addAction(new GenerateRepositoriesAction());
-  strategyBuilder.addAction(new CloseConnectionAction());
+  strategyBuilder.addAction(new GenerateContentAction());
+
   return strategyBuilder.build();
 };

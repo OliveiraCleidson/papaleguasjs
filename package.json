@@ -17,6 +17,7 @@
     "start:dev": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn src/main.ts",
     "start:debug": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules --respawn src/main.ts",
     "start": "node ./dist/main.js",
+    "run:ts": "ts-node-dev -r tsconfig-paths/register --transpile-only --ignore-watch node_modules --respawn",
     "prepare": "npm run build"
   },
   "dependencies": {
